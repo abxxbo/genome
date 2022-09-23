@@ -33,20 +33,15 @@ int main(int argc, char** argv){
       char c = *buffer__;
 
       switch (c){
-      case 'c':
       case 'C':
         printf("%c", vals[ip]);
         break;
-      
-      case 't':
+
       case 'T':
         vals[ip]++;
         break;
 
-      case 'g':
       case 'G': ip++; break;
-      
-      case 'a':
       case 'A': ip--; break;
       default: break;
       }
