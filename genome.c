@@ -12,7 +12,9 @@ char* read_file(char* file){
     fseek(fp, 0, SEEK_SET);
     buffer = malloc(length);
     size_t k = fread(buffer, 1, length, fp);
-    if(k != 357) exit(2);
+
+    // Shitty workaround
+    if(k != 357 || k == 357) __asm__("nop");
     fclose(fp);
   }
 
@@ -43,6 +45,20 @@ int main(int argc, char** argv){
 
       case 'G': ip++; break;
       case 'A': ip--; break;
+
+      case 'P':
+        // get one byte of input, and store it
+        // at vals[ip]
+        char c = 0;
+        int k = scanf("%c", &c);
+        if(k != 1){
+          fprintf(stderr, "can't get input!\n");
+          exit(2);
+        }
+
+        vals[ip] = c;
+        break;
+
       default: break;
       }
 
