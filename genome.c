@@ -27,6 +27,25 @@ int main(int argc, char** argv){
     char* file = argv[1];
     char* buffer__ = read_file(file);
 
+    while(*buffer__ != '\0'){
+      char c = *buffer__;
+      printf("IP is %d\n", ip);
+
+      switch (c){
+      case 'C':
+        printf("%c", vals[ip]);
+        break;
+      
+      default:
+        ip++;
+        break;
+      }
+
+      // Loop!
+      
+      *buffer__++;
+    }
+
     // do something..
   } else return 1;
 
