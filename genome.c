@@ -23,26 +23,30 @@ int main(int argc, char** argv){
   int ip = 0;
   int vals[1024]; // vals[2] means ip=2
 
+  for(int i = 0; i != 1024; i++) vals[i] =0;
+
   if(argc >= 2){
     char* file = argv[1];
     char* buffer__ = read_file(file);
 
     while(*buffer__ != '\0'){
       char c = *buffer__;
-      printf("IP is %d\n", ip);
 
       switch (c){
       case 'C':
         printf("%c", vals[ip]);
         break;
       
-      default:
-        ip++;
+      case 'T':
+        vals[ip]++;
         break;
+
+      case 'G': ip++; break;
+      case 'A': ip--; break;
+      default: break;
       }
 
       // Loop!
-      
       *buffer__++;
     }
 
