@@ -11,7 +11,8 @@ char* read_file(char* file){
     length = ftell(fp);
     fseek(fp, 0, SEEK_SET);
     buffer = malloc(length);
-    if(buffer) fread(buffer, 1, length, fp);
+    size_t k = fread(buffer, 1, length, fp);
+    if(k != 357) exit(2);
     fclose(fp);
   }
 
@@ -46,7 +47,7 @@ int main(int argc, char** argv){
       }
 
       // Loop!
-      *buffer__++;
+      c = *buffer__++;
     }
 
     // do something..
