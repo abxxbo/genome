@@ -37,9 +37,8 @@ int main(int argc, char** argv){
         printf("%c", vals[ip]);
         break;
 
-      case 'T':
-        vals[ip]++;
-        break;
+      case 'T': vals[ip]++; break;
+      case 't': vals[ip]--; break;
 
       case 'G': ip++; break;
       case 'A': ip--; break;
