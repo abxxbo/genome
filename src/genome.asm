@@ -8,6 +8,18 @@ mov es, ax
 mov sp, 0x7c00
 mov bp, sp
 
+
+%macro enter 0
+  mov ah, 0x0e
+  mov al, `\r`
+  int 0x10
+
+  mov ah, 0x0e
+  mov al, `\n`
+  int 0x10
+%endmacro
+
+mov si, 0x00
 loop:
   ;; Get input
   xor ah, ah
@@ -16,16 +28,21 @@ loop:
   mov ah, 0x0e
   int 0x10
 
+  ;; Check if enter
   cmp al, 13
   je scan_buf
+
+  ;; If not enter, add to buffer
+  mov byte [buffer+si], byte al
+  inc si
 
   jmp loop
 
 
 ;; Do something...
 scan_buf:
-  nop
-  jmp scan_buf
+  enter
+  jmp $
 
 
 jmp $
