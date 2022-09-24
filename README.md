@@ -2,8 +2,7 @@
 An esoteric programming language.
 
 # How to Compile
-Run `make` (since genome is written in C). The bootsector interpreter is written in assembly, and can still be compiled with `make`.
-
+Run `make` (since genome is written in C).
 
 # Keywords and what they do
 | Keyword     | What it does|
