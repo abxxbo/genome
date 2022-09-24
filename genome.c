@@ -31,6 +31,7 @@ int main(int argc, char** argv){
   if(argc >= 2){
     char* file = argv[1];
     char* buffer__ = read_file(file);
+    char c = 0;
 
     while(*buffer__ != '\0'){
       char c = *buffer__;
@@ -49,7 +50,7 @@ int main(int argc, char** argv){
       case 'P':
         // get one byte of input, and store it
         // at vals[ip]
-        char c = 0;
+        c = 0;
         int k = scanf("%c", &c);
         if(k != 1){
           fprintf(stderr, "can't get input!\n");
