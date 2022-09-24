@@ -1,8 +1,8 @@
 # genome
-An esoteric programming language with 4 keywords.
+An esoteric programming language.
 
 # How to Compile
-Run `make` (since genome is written in C).
+Run `make` (since genome is written in C). The bootsector interpreter is written in assembly, and can still be compiled with `make`.
 
 
 # Keywords and what they do
@@ -13,28 +13,6 @@ Run `make` (since genome is written in C).
 | G           | Add 1 to current instruction pointer |
 | A           | Decrement 1 to current instruction pointer |
 | P           | Get one byte of input and store it at the current instruction pointer |
-| O           | Loop until next occasion of `O`, `n` times (e.g. `O ... On`). See [Limitations on `O`](#limitations-on-o) |
-|||
-| t           | Decrement value a tinstruction pointer (inverse of `T`) |
-
 
 # Examples
 See `examples/`.
-
-# Limitations on `O`
-`n` must be `>1024`.
-
-An example of using `O` is
-
-*hello_loop.gn*:
-```genome
-OTO104CGOTO101CGOTO108CGACOTO111C
-GOTO10C
-```
-
-*Shell*:
-```
-$ genome hello_loop.gn
-hello
-$
-```
